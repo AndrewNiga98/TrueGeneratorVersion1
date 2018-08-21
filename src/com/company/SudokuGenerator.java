@@ -104,6 +104,157 @@ public class SudokuGenerator {
         }
     }
 
+    void changeMatrix()
+    {
+        int amount = (int) (Math.random()*10) + 5; //generates the number of changes
+        int change[] = new int[amount]; //and numbers of those changes
+        for(int i=0;i<amount;i++)
+        {
+            change[i] = (int) (Math.random()*3) +1;
+            if(change[i]==1)
+            {
+                //here we change rows
+                int changingRow = (int) (Math.random()*9);
+                switch (changingRow) //according to number of row we choose different way of sort
+                {
+                    case 0:
+                    case 3:
+                    case 6:
+                    {
+
+                        int rand = (int) (Math.random()*2)+1; //change 1st and 2nd or 3rd row of the sector
+                        for (int k = 0; k < 9; k++)
+                        {
+                            int temp = matrix[changingRow][k];
+                            matrix[changingRow][k] = matrix[changingRow + rand][k];
+                            matrix[changingRow + rand][k] = temp;
+                        }
+                    }break;
+                    case 1:
+                    case 4:
+                    case 7:
+                    {
+                        int rand = (int) (Math.random()*2);//2nd and 1 or 3rd depending on rand
+                        if(rand == 0)
+                        {
+                            for(int k=0;k<9;k++)
+                            {
+                                int temp = matrix[changingRow][k];
+                                matrix[changingRow][k] = matrix[changingRow - 1][k];
+                                matrix[changingRow - 1][k] = temp;
+                            }
+                        }
+                        if(rand == 1)
+                        {
+                            for(int k=0;k<9;k++)
+                            {
+                                int temp = matrix[changingRow][k];
+                                matrix[changingRow][k] = matrix[changingRow + 1][k];
+                                matrix[changingRow + 1][k] = temp;
+                            }
+                        }
+                    }break;
+                    case 2:
+                    case 5:
+                    case 8:
+                    {
+                        int rand = (int) (Math.random()*2) -2;//3rd and 1st or 2nd
+                        for (int k = 0; k < 9; k++)
+                        {
+                            int temp = matrix[changingRow][k];
+                            matrix[changingRow][k] = matrix[changingRow + rand][k];
+                            matrix[changingRow + rand][k] = temp;
+                        }
+                    }break;
+                }
+
+            }
+            if(change[i]==2)
+            {
+                //same acts with column
+                int changingColumn = (int) (Math.random()*9);
+                switch (changingColumn)
+                {
+                    case 0:
+                    case 3:
+                    case 6:
+                    {
+                        int rand = (int)(Math.random()*2)+1;
+                        for(int k=0;k<9;k++)
+                        {
+                            int temp=matrix[k][changingColumn];
+                            matrix[k][changingColumn] = matrix[k][changingColumn+rand];
+                            matrix[k][changingColumn+rand] = temp;
+                        }
+                    }break;
+                    case 1:
+                    case 4:
+                    case 7:
+                    {
+                        int rand = (int) (Math.random()*2);
+                        if(rand == 0)
+                        {
+                            for(int k=0;k<9;k++)
+                            {
+                                int temp=matrix[k][changingColumn];
+                                matrix[k][changingColumn] = matrix[k][changingColumn - 1];
+                                matrix[k][changingColumn - 1] = temp;
+                            }
+                        }
+                        if(rand == 1)
+                        {
+                            for(int k=0;k<9;k++)
+                            {
+                                int temp=matrix[k][changingColumn];
+                                matrix[k][changingColumn] = matrix[k][changingColumn+rand];
+                                matrix[k][changingColumn+rand] = temp;
+                            }
+                        }
+                    }break;
+                    case 2:
+                    case 5:
+                    case 8:
+                    {
+                        int rand = (int) (Math.random()*2)-2;
+                        for(int k=0;k<9;k++)
+                        {
+                            int temp=matrix[k][changingColumn];
+                            matrix[k][changingColumn] = matrix[k][changingColumn+rand];
+                            matrix[k][changingColumn+rand] = temp;
+                        }
+                    }break;
+
+                }
+
+            }
+
+            if(change[i]==3)
+            {
+                //transpose the matrix *columns are rows*
+                int changeMatrix[][] = new int [9][9];
+                for(int k=0;k<9;k++)
+                {
+                    for(int j=0;j<9;j++)
+                    {
+                        changeMatrix[k][j] = matrix[j][k];
+                    }
+                }
+                for(int k=0;k<9;k++)
+                {
+                    for(int j=0;j<9;j++)
+                    {
+                        matrix[k][j] = changeMatrix[k][j];
+                    }
+                }
+
+
+
+            }
+        }
+
+
+    }
+
 
 
 
