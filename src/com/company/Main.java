@@ -8,7 +8,8 @@ public class Main {
         SudokuGenerator matrix = new SudokuGenerator();
         matrix.showMatrix();
         matrix.changeMatrix();
-        System.out.println("\nNew matrix : \n");
+        System.out.println("New matrix :\n");
         matrix.showMatrix();
+
     }
 }

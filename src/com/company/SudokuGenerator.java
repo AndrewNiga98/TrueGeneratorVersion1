@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Random;
+
 public class SudokuGenerator {
 
     private int[][] matrix = new int[9][9];
@@ -13,7 +15,7 @@ public class SudokuGenerator {
     {
 
         //here u generate 1st row
-        for(int i=0;i<9;i++)
+       /* for(int i=0;i<9;i++)
         {
             this.matrix[0][i] = (int) (Math.random()*10);
             if(matrix[0][i]==0)
@@ -42,6 +44,20 @@ public class SudokuGenerator {
                 }
             }
 
+        }*/
+        // generates first row
+        for(int i=0;i<9;i++)
+        {
+            matrix[0][i] = i+1;
+        }
+        int index1, temp1;
+        Random random = new Random();
+        for(int i=8;i>0;i--)
+        {
+            index1 = random.nextInt(i+1);
+            temp1 = matrix[0][index1];
+            matrix[0][index1] = matrix[0][i];
+            matrix[0][i] = temp1;
         }
 
 
