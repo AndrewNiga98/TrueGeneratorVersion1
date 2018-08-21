@@ -9,38 +9,6 @@ public class SudokuGenerator {
 
     public SudokuGenerator()
     {
-
-        //here u generate 1st row
-       /* for(int i=0;i<9;i++)
-        {
-            this.matrix[0][i] = (int) (Math.random()*10);
-            if(matrix[0][i]==0)
-            {
-                while (matrix[0][i]==0)
-                {
-                    matrix[0][i] = (int)(Math.random()*10);
-                }
-            }
-            int j;
-            for(j=i;j>=0;j--) //just check if there are same numbers in the row
-            {
-                if(i==0)
-                    break;
-                if(matrix[0][j]==matrix[0][i])
-                {
-                    matrix[0][i]=(int)(Math.random()*10);
-                    if(matrix[0][i]==0)
-                    {
-                        while (matrix[0][i]==0)
-                        {
-                            matrix[0][i] = (int)(Math.random()*10);
-                        }
-                    }
-                    j=i;
-                }
-            }
-
-        }*/
         // generates first row
         for(int i=0;i<9;i++)
         {
