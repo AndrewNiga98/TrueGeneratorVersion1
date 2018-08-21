@@ -86,7 +86,7 @@ public class SudokuGenerator {
 
     void changeMatrix()
     {
-        int amount = (int) (Math.random()*10) + 5; //generates the number of changes
+        int amount = (int) (Math.random()*20) + 8; //generates the number of changes
         int change[] = new int[amount]; //and numbers of those changes
         for(int i=0;i<amount;i++)
         {
@@ -147,6 +147,8 @@ public class SudokuGenerator {
                         }
                     }break;
                 }
+
+
 
             }
             if(change[i]==2)
@@ -226,8 +228,6 @@ public class SudokuGenerator {
                         matrix[k][j] = changeMatrix[k][j];
                     }
                 }
-
-
 
             }
         }
