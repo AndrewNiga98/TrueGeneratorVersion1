@@ -6,10 +6,6 @@ public class SudokuGenerator {
 
     private int[][] matrix = new int[9][9];
 
-    public SudokuGenerator(int [][] matrix)
-    {
-        this.matrix = matrix;
-    }
 
     public SudokuGenerator()
     {
